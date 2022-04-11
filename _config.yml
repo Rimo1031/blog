@@ -104,13 +104,13 @@ analytics:
 author:
   name             : "Rimo"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Seoul"
+  bio              : "낮잠 중 방해 금지"
+  location         : "Seoul, Republic of Korea"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:semc1031@email.com"
+      # url: "mailto:semc1031@gmail.com"
     # - label: "Website"
     # icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
@@ -138,7 +138,7 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
+      # url: https://github.com/Rimo1031/blog
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
@@ -216,9 +216,9 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
+paginate: 10 # amount of posts to show
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Asia/Seoul# https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins (previously gems:)
@@ -288,3 +288,15 @@ defaults:
       comments: # true
       share: true
       related: true
+      
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+      read_time: false
+      comments: false # true
+      share: false
+      related: false

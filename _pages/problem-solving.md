@@ -5,7 +5,7 @@ layout: category
 author_profile: true
 toc_sticky: true
 toc_ads : true
-taxonomy: problem-solving
+taxonomy: Problem Solving
 ---
 
 Baekjoon Online Judge 문제 풀이 모음집

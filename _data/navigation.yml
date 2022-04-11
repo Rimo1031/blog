@@ -6,6 +6,9 @@ main:
   - title: "Recent Posts"
     url: https://rimo1031.github.io/blog/
   
+  - title: "Problem Solving"
+    url: /categories/#problem-solving
+  
   - title: "Category"
     url: /categories/
   # - title: "Sample Collections"

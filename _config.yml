@@ -106,7 +106,7 @@ author:
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "낮잠 중 방해 금지"
   location         : "Republic of Korea"
-  email            : "rimo1031_dev@gmail.com"
+  email            : "rimo1031.dev@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"

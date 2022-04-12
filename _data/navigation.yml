@@ -3,9 +3,12 @@ main:
   - title: "About"
     url: /main/
   
-  - title: "Recent Posts"
-    url: https://rimo1031.github.io/blog/
+  # - title: "Recent Posts"
+  #   url: https://rimo1031.github.io/blog/
   
+  - title: "Programming Language"
+    url: /categories/programming-language
+
   - title: "Problem Solving"
     url: /categories/problem-solving
   

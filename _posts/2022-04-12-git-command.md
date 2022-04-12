@@ -5,6 +5,8 @@ categories:
   - Programming Language
 tags:
   - Git
+toc: true
+toc_sticky: true
 ---
 ## 용어
 - ``repository`` : 파일이 저장되어 있는 저장소. 원격 서버 저장소는 remote repository, 개인 디바이스 내 저장소는 local repository라고 한다.

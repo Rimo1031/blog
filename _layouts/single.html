@@ -30,10 +30,10 @@ layout: default
             <a href="{{ page.url | absolute_url }}" class="u-url" itemprop="url">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
           </h1>{% endif %}
           {% if page.date %}
-            <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "First Written at " }} <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></p>
+            <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "최초 작성 : " }} <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></p>
           {% endif %}
           {% if page.last_modified_at %}
-            <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Last Modified at " }} <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.last_modified_at | date: "%B %d, %Y" }}</time></p>
+            <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "최종 수정 : " }} <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.last_modified_at | date: "%B %d, %Y" }}</time></p>
           {% endif %}
         </header>
       {% endunless %}

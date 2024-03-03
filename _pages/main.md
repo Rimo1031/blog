@@ -4,4 +4,4 @@ permalink: /main/
 layout: single
 ---
 
-Sample blog.
+임시 블로그 (이전 예정)

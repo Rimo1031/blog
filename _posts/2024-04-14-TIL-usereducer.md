@@ -1,4 +1,3 @@
-
 ---
 title: "useReducer를 활용한 React 상태 관리"
 excerpt: " "
@@ -19,15 +18,19 @@ React에서 상태 관리를 할 때, 함수형 컴포넌트에서라면 대부�
 
 ```javascript
 const MyComponent = () => {
-  const [User, dispatch] = useReducer(reducer, { name: 'John', age: 25, address: 'Chicago' })
-}
+  const [User, dispatch] = useReducer(reducer, {
+    name: "John",
+    age: 25,
+    address: "Chicago",
+  });
+};
 ```
 
 `useReducer` hook은 조금 더 많은 인자와 반환값을 가지는데, 이 중에 `useState`와 다른 `reducer` 함수, `dispatch` 함수를 알아보도록 하자.
 
 ### `reducer` 함수
 
-**state를 업데이트하는 로직**이 포함된 함수이다. reducer 함수는 *직전 state*와 *action*값을 인수로 받고, *action* 변수에 따라 *업데이트될 state*를 반환한다.
+**state를 업데이트하는 로직**이 포함된 함수이다. reducer 함수는 *직전 state*와 *action*값을 인수로 받고, _action_ 변수에 따라 *업데이트될 state*를 반환한다.
 
 `action` 변수는 사용자가 어떤 행동을 취했는지와 그 행동의 context를 담은 일반 JavaScript 객체이다. action 객체의 구조에는 제한 사항이 없지만, 최소한 어떤 종류의 행동을 했는지를 알려주는 `type` field는 반드시 사용하도록 권장하고 있다.
 
@@ -40,19 +43,19 @@ const MyComponent = () => {
 `useState`와 `useReducer`는 모두 React에서 state 변수의 업데이트를 위해 사용하지만, 그 동작 방식에는 큰 차이가 있다. `useState`는 **무엇을 할 것인지**를 직접적으로 명시하지만 `useReducer`의 `dispatch` 함수는 **사용자가 방금 무슨 일을 했는지**를 React에 알려준다. 예를 들어 간단한 게시판 애플리케이션에서 게시글을 추가, 수정, 삭제하는 이벤트 핸들러를 작성한다고 하자. `useState`를 활용해 작성한다면,
 
 ```javascript
-const [posts, setPosts] = useState([])
+const [posts, setPosts] = useState([]);
 
 const handleAddPost = (newPost) => {
-  setPosts([...posts, newPost])
-}
+  setPosts([...posts, newPost]);
+};
 
 const handleChangePost = (postId, newPost) => {
-  setPosts(posts.map((post) => postId === post.id ? newPost : post))
-}
+  setPosts(posts.map((post) => (postId === post.id ? newPost : post)));
+};
 
 const handleDeletePost = (postId) => {
-  setPosts(posts.filter((post) => post.id !== postId))
-}
+  setPosts(posts.filter((post) => post.id !== postId));
+};
 ```
 
 와 같이 작성할 수 있을 것이다. 이 때 각각의 이벤트 핸들러에서는 추가, 변경, 삭제 상호작용에 대해 **state를 다음과 같이 설정하라.**는 식으로 이벤트 핸들러 안에서 state를 어떻게 변경할 지를 명시해 주고 있다. 반면 `useReducer`를 사용해서 같은 로직을 구현하면 다음과 같다.
@@ -60,35 +63,36 @@ const handleDeletePost = (postId) => {
 ```javascript
 const reducer = (posts, action) => {
   switch (action.type) {
-    case 'ADD': {
-      return [...posts, action.newPost]
+    case "ADD": {
+      return [...posts, action.newPost];
     }
-    case 'CHANGE': {
-      return posts.map((post) => action.postId === post.id ? action.newPost : post)
+    case "CHANGE": {
+      return posts.map((post) =>
+        action.postId === post.id ? action.newPost : post
+      );
     }
-    case 'DELETE': {
-      return posts.filter((post) => post.id !== action.postId)
+    case "DELETE": {
+      return posts.filter((post) => post.id !== action.postId);
     }
   }
-}
+};
 
-const [posts, dispatch] = useReducer(reducer, [])
+const [posts, dispatch] = useReducer(reducer, []);
 
 const handleAddPost = (newPost) => {
-  dispatch({ type: 'ADD', newPost: newPost })
-}
+  dispatch({ type: "ADD", newPost: newPost });
+};
 
 const handleChangePost = (postId, newPost) => {
-  dispatch({ type: 'CHANGE', postId: postId, newPost: newPost })
-}
+  dispatch({ type: "CHANGE", postId: postId, newPost: newPost });
+};
 
 const handleDeletePost = (postId) => {
-  dispatch({ type: 'DELETE', postId: postId })
-}
-
+  dispatch({ type: "DELETE", postId: postId });
+};
 ```
 
-`useReducer`를 사용하면 실제로 state를 업데이트하는 로직은 **reducer 함수 안으로 이관**되고 이벤트 핸들러 안에는 **사용자가 게시글을 추가 / 변경 / 삭제 했다는 action을 취했다**를 React에 알려주는 로직만 남는다. 
+`useReducer`를 사용하면 실제로 state를 업데이트하는 로직은 **reducer 함수 안으로 이관**되고 이벤트 핸들러 안에는 **사용자가 게시글을 추가 / 변경 / 삭제 했다는 action을 취했다**를 React에 알려주는 로직만 남는다.
 
 ## `useState`와 `useReducer`, 어느 것이 좋은가?
 
@@ -104,7 +108,6 @@ const handleDeletePost = (postId) => {
 
 예를 들어 컴포넌트의 state는 하나인데 이 state를 업데이트하는 이벤트 핸들러가 매우 많다고 가정하자. `useState`의 `setState` 함수를 사용하면 각각의 수많은 `setState` 함수들이 모두 state를 어떻게 업데이트해야 하는지, 즉 state의 업데이트 로직을 포함해야 한다. 이는 곧 비슷비슷한 로직들이 수많은 이벤트 핸들러에 모두 존재한다는 것을 의미하고, 개별 이벤트 핸들러의 코드 양이 많아지면서 가독성 측면에서도 문제가 생길 수 있다.
 `useReducer`를 활용하면 state 업데이트 로직을 모두 하나의 함수로 통합하고, 각각의 이벤트 핸들러에서는 `dispatch` 함수만을 실행하게 해서 디버깅도 간편하고 코드의 가독성도 높아지는 구조를 만들 수 있다.
-
 
 ### `useState`의 장점
 

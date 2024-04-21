@@ -7,7 +7,7 @@ tags:
   - Next.js
 toc: true
 toc_sticky: true
-# last_modified_at : 2022-04-12T00:30:00
+# last_modified_at : 2022-04-12T00:30:00 
 ---
 
 ## 코드 스플리팅이란?

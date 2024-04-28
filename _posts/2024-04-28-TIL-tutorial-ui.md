@@ -16,7 +16,11 @@ toc_sticky: true
 
 정확한 용어가 따로 있는지는 모르겠지만, 많은 애플리케이션에서 볼 수 있는 튜토리얼 UI가 있다. 튜토리얼 단계를 진행하면서 현재 단계에서 설명하고자 하는 부분을 제외한 배경을 어둡게 처리하고 설명하려는 부분 옆에 말풍선 형태의 툴팁이 뜨는 UI를 많이 본 적이 있을 것이다.
 
-![튜토리얼 UI]({{site.url}}{{site.baseurl}}/assets/img/tutorial-example.png)
+<p align="center" style="color:gray">
+  <!-- 마진은 위아래만 조절하는 것이 정신건강에 좋을 듯 하다. 이미지가 커지면 깨지는 경우가 있는 듯 하다.-->
+  <img style="margin:50px 0 10px 0" src="https://rimo1031.github.io/assets/img/tutorial-example.png"  width=400 />
+  (출처 : 요즘IT)
+</p>
 
 이와 같은 UI를 구현해 보려고 한다.
 

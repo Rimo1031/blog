@@ -56,3 +56,4 @@ const throttle = (delay = 200) => {
     throttleTimer = null
   }, delay)
 }
+```

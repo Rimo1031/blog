@@ -4,7 +4,7 @@ excerpt: " "
 categories:
   - Programming Language
 tags:
-  - [CSS]
+  - [Next.js]
 toc: true
 toc_sticky: true
 # last_modified_at : 2022-04-12T00:30:00
